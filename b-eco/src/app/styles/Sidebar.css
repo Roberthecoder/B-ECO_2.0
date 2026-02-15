@@ -53,7 +53,30 @@ body {
     background-color: #039d50;
     transition: 0.3s;
   }
-  
+
+  /* Sidebar dropdown */
+  .sidebar-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-dropdown .dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .sidebar-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    background-color: rgba(0, 103, 51, 0.1);
+  }
+
+  .sidebar-dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}

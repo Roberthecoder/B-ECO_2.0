@@ -9,9 +9,20 @@ import "../styles/HeaderCarousel.css";
 
 const FADE_INTERVAL_MS = 12000;
 
-export default function HeaderCarousel() {
+export default function HeaderCarousel({ images }) {
+  // Use prop if provided, otherwise fallback to imported data
+  const carouselImages = images || HeaderCarouselImages.images;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeProp, setFadeProp] = useState({ fade: "fade-in" });
+
+  // Preload all carousel images to prevent reloading
+  useEffect(() => {
+    carouselImages.forEach((image) => {
+      const img = new Image();
+      img.src = image.img;
+    });
+  }, [carouselImages]);
 
   useEffect(() => {
     const fadeTimeout = setTimeout(() => {
@@ -31,20 +42,23 @@ export default function HeaderCarousel() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (currentIndex === HeaderCarouselImages.images.length - 1) {
+      if (currentIndex === carouselImages.length - 1) {
         setCurrentIndex(0);
       } else {
         setCurrentIndex(currentIndex + 1);
       }
     }, FADE_INTERVAL_MS);
     return () => clearTimeout(timeout);
-  }, [currentIndex]);
+  }, [currentIndex, carouselImages.length]);
+
+  const currentImage = carouselImages[currentIndex];
+  const fitMode = currentImage.fitMode || "cover";
 
   return (
     <>
       <img
-        className={`carousel-img ${fadeProp.fade}`}
-        src={HeaderCarouselImages.images[currentIndex].img}
+        className={`carousel-img ${fadeProp.fade} carousel-img-${fitMode}`}
+        src={currentImage.img}
         alt="b-eco header carousel"
       />
     </>

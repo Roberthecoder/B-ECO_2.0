@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F1.jpg?alt=media&token=5b71b01c-9505-484b-9940-aedf9670947f",
+      "title": "Header Image 1",
+      "fitMode": "cover"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F2.jpg?alt=media&token=2b2b1259-0561-43fc-a8a4-63a0dedf6acf",
+      "title": "Header Image 2",
+      "fitMode": "cover"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F3.jpg?alt=media&token=eac35d08-8bd9-48b0-956c-10e74cb3933f",
+      "title": "Header Image 3",
+      "fitMode": "cover"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F4.jpg?alt=media&token=532b3e7d-3534-4a6f-ad43-46cb34011a7a",
+      "title": "Header Image 4",
+      "fitMode": "contain"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F5.jpg?alt=media&token=52e04e8b-3214-40f7-8011-1e3f422c68a9",
+      "title": "Header Image 5",
+      "fitMode": "cover"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FCarrusel2026%2F6.jpg?alt=media&token=2530c76c-024b-4464-994d-8a040386534d",
+      "title": "Header Image 6",
+      "fitMode": "cover"
+    }
+  ]
+}

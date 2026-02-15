@@ -8,8 +8,19 @@ import "../styles/Projects.css";
 // Utils
 import { projectsResources } from "../utils/Projects";
 
-const Projects = () => {
+const Projects = ({ projects }) => {
+  // Use prop if provided, otherwise fallback to imported data
+  const projectsList = projects || projectsResources;
+
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Preload all project images to prevent reloading on carousel navigation
+  useEffect(() => {
+    projectsList.forEach((project) => {
+      const img = new Image();
+      img.src = project.image;
+    });
+  }, [projectsList]);
 
   const sliderStyles = {
     position: "relative",
@@ -22,12 +33,12 @@ const Projects = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      setCurrentIndex(projectsResources.length - 1);
+      setCurrentIndex(projectsList.length - 1);
     }
   };
 
   const goToNext = () => {
-    if (currentIndex < projectsResources.length - 1) {
+    if (currentIndex < projectsList.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
       setCurrentIndex(0);
@@ -47,20 +58,20 @@ const Projects = () => {
         </p>
         <div className="mainContainer">
               <div style={sliderStyles}>
-                
+
                   <img
-                    src={projectsResources[currentIndex].image}
-                    alt={projectsResources[currentIndex].title}
+                    src={projectsList[currentIndex].image}
+                    alt={projectsList[currentIndex].title}
                     className="projectImage"
                   />
-              
+
           </div>
           <div className="textContainer">
             <h2 style={{ textAlign: "center", marginBottom: 16 }}>
-              {projectsResources[currentIndex].title}
+              {projectsList[currentIndex].title}
             </h2>
             <p style={{ fontSize: "1.2rem" }}>
-              {projectsResources[currentIndex].description}
+              {projectsList[currentIndex].description}
             </p>
           </div>
         </div>
@@ -69,7 +80,7 @@ const Projects = () => {
         </p>
       </div>
       <div style={{ display: "flex", justifyContent: "center", marginTop: 24 }}>
-        {projectsResources.map((project, index) => (
+        {projectsList.map((project, index) => (
           <div
             key={index}
             className={index === currentIndex ? "circle-colored" : "circles"}

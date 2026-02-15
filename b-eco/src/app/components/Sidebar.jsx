@@ -1,9 +1,13 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import "../styles/Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ yearSlug = "current" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [historiaOpen, setHistoriaOpen] = useState(false);
+  const isArchive = yearSlug !== "current";
+  const basePath = isArchive ? `/historia/${yearSlug}` : "";
 
   const openNav = () => {
     setIsOpen(true);
@@ -11,6 +15,10 @@ function Sidebar() {
 
   const closeNav = () => {
     setIsOpen(false);
+  };
+
+  const toggleHistoria = () => {
+    setHistoriaOpen(!historiaOpen);
   };
 
   return (
@@ -37,24 +45,37 @@ function Sidebar() {
             <div id="mySidenav" className={`sidenav ${isOpen ? 'open' : ''}`}>
                 <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
                 <div>
-                    <a href="#inicio" className='titleHover'>
+                    <a href={`${basePath}#inicio`} className='titleHover'>
                         Inicio
                     </a>
-                    <a href="#quienes-somos" className='titleHover'>
-                       Nosotros
+                    <a href={`${basePath}#quienes-somos`} className='titleHover'>
+                        Nosotros
                     </a>
-                    <a href="#proyectos" className='titleHover'>
+                    <a href={`${basePath}#proyectos`} className='titleHover'>
                         Proyectos
                     </a>
                     {/* <a href="#ecoserpiente" className='titleHover'>
                         EcoSerpiente
                     </a>     */}
-                    <a href="#siguenos" className='titleHover'>
+                    <a href={`${basePath}#siguenos`} className='titleHover'>
                         Síguenos
                     </a>
-                    <a href="#contacto" className='titleHover'>
+                    <a href={`${basePath}#contacto`} className='titleHover'>
                         Contacto
                     </a>
+
+                    <div className="sidebar-dropdown">
+                        <a onClick={toggleHistoria} className='titleHover dropdown-toggle'>
+                            Historia {historiaOpen ? '▲' : '▼'}
+                        </a>
+                        {historiaOpen && (
+                            <div className="sidebar-dropdown-menu">
+                                <Link href="/historia/2023-2025" className='titleHover dropdown-item'>
+                                    2023-2025
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
             <div id="main" className={isOpen ? 'open-main' : ''}>

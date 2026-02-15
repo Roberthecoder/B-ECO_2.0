@@ -3,7 +3,9 @@ import { cardsContent } from '../utils/Cards'
 import "../styles/FollowUs.css"
 // Styles
 
-const FollowUs = () => {
+const FollowUs = ({ cards }) => {
+    // Use prop if provided, otherwise fallback to imported data
+    const cardsList = cards || cardsContent;
     return (
         <section className="content-section" id="Siguenos">
           <section>
@@ -12,7 +14,7 @@ const FollowUs = () => {
               La revolución sostenible está en marcha, y en B-eco, queremos que seas parte de ella. Únete a nosotros, donde la pasión se encuentra con la acción y donde cada pequeño paso nos acerca a un mañana más brillante. ¡Te invitamos a ser parte de la revolución B-eco!
               ¿Listo para unirte? ¡Nosotros estamos listos para transformar juntos! 🌿</p>
             <section className="cards">
-              {cardsContent.map((card, index) => (
+              {cardsList.map((card, index) => (
                 <div key = {index}>
                   <Cards image = {card.img} text={card.text} referencia={card.link}/>
                 </div>
