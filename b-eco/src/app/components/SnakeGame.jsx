@@ -227,7 +227,7 @@ const SnakeGame = () => {
   };  
 
   return (
-    <gameContainer>
+    <div className="gameContainer">
       {!gameStarted && ( // Display content only if game hasn't started
         <div className="pre-game-content">
           <img 
@@ -238,7 +238,7 @@ const SnakeGame = () => {
       )}
       {gameStarted && (
         <div>
-          <container>
+          <div>
             <table>
               <section className="gameBackground">
               {Array.from({ length: ROWS }).map((_, rowIndex) => (
@@ -273,7 +273,7 @@ const SnakeGame = () => {
                 ))}
               </section>
             </table>
-          </container>
+          </div>
         </div>
       )}
 
@@ -295,15 +295,15 @@ const SnakeGame = () => {
             GAME OVER, Let's play again!
           </button>
         )}
-        <container className="score-button">
+        <div className="score-button">
           Score: {score}
-        </container>
-        <container className="highestsScore-button">
+        </div>
+        <div className="highestsScore-button">
           Highest Score: {highestScore}
-        </container>
+        </div>
       </div>
 
-    </gameContainer>
+    </div>
   );
 };
 

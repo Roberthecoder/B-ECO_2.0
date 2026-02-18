@@ -49,7 +49,7 @@ const Contact = () => {
         <section className="contactInfo">
           <div className="names">
             <div className="fName">
-              <label for="fname" style={{ fontWeight: "bold" }}>
+              <label htmlFor="fname" style={{ fontWeight: "bold" }}>
                 Nombre(s)
               </label>
               <input
@@ -60,7 +60,7 @@ const Contact = () => {
               />
             </div>
             <div className="fName">
-              <label for="lname" style={{ fontWeight: "bold" }}>
+              <label htmlFor="lname" style={{ fontWeight: "bold" }}>
                 Apellido(s)
               </label>
               <input
