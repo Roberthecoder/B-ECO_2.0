@@ -1,17 +1,22 @@
+/* Fotos del carrusel: siempre con su proporción natural (sin estirarse) */
 .carousel-img {
+  display: block;
   margin-top: 80px;
   width: 100%;
-  height: 60vh;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  max-height: 75vh;
+  object-fit: cover;
   object-position: center;
 }
 
-/* Cover mode: crop images to fill the space */
+/* Cover: recorta un poco las orillas para llenar el espacio */
 .carousel-img-cover {
   object-fit: cover;
   background-color: transparent;
 }
 
-/* Contain mode: show full image with white background */
+/* Contain: muestra la foto completa con fondo blanco */
 .carousel-img-contain {
   object-fit: contain;
   background-color: white;
@@ -26,8 +31,8 @@
   transition: opacity 1s ease;
 }
 
-@media screen and (max-width: 600px){
-  .carousel-img{
-    height: 40vh;
+@media screen and (max-width: 600px) {
+  .carousel-img {
+    aspect-ratio: 4 / 3;
   }
 }

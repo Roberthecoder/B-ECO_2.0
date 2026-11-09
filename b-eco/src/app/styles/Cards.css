@@ -23,6 +23,8 @@
 
 .card-image {
     height: 210px;
+    background-position: center;
+    background-repeat: no-repeat;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }

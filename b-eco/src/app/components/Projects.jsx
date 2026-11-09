@@ -22,13 +22,6 @@ const Projects = ({ projects }) => {
     });
   }, [projectsList]);
 
-  const sliderStyles = {
-    position: "relative",
-    overflow: "hidden",
-    height: 480,
-    flex: 2,
-  };
-
   const goToPrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
@@ -57,7 +50,7 @@ const Projects = ({ projects }) => {
           &#10092;
         </p>
         <div className="mainContainer">
-              <div style={sliderStyles}>
+              <div className="projectSlider">
 
                   <img
                     src={projectsList[currentIndex].image}

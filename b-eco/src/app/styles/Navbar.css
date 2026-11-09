@@ -34,6 +34,11 @@
 .b-eco_logo {
     width: 120px;
     height: 60px;
+    object-fit: contain;
+}
+
+.b-eco_ai {
+    object-fit: contain;
 }
 
 /* @media screen and (max-width: 780px) {

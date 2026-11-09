@@ -14,7 +14,7 @@ export default async function HistoriaPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  return [
-    { year: '2023-2025' },
-  ];
+  return Object.keys(homepageConfigs)
+    .filter((year) => year !== 'current')
+    .map((year) => ({ year }));
 }

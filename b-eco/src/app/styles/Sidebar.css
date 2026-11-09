@@ -82,3 +82,6 @@ body {
     .sidenav a {font-size: 18px;}
   }
   
+.b-eco_logo, .b-eco_ai {
+    object-fit: contain;
+}

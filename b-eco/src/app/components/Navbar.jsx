@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { mesasDirectivas } from "../data/historia";
 
 // Styles
 import "../styles/Navbar.css";
 
 const Navbar = ({ yearSlug = "current" }) => {
   const isArchive = yearSlug !== "current";
-  const basePath = isArchive ? `/historia/${yearSlug}` : "";
+  const basePath = isArchive ? `/historia/${yearSlug}` : "/";
 
   return (
     <div className="container">
@@ -55,9 +56,14 @@ const Navbar = ({ yearSlug = "current" }) => {
               Historia ▾
             </span>
             <div className="dropdown-menu">
-              <Link href="/historia/2023-2025" className="dropdown-item">
-                2023-2025
+              <Link href="/historia" className="dropdown-item">
+                Línea del tiempo
               </Link>
+              {mesasDirectivas.map((m) => (
+                <Link key={m.id} href={`/historia#mesa-${m.id}`} className="dropdown-item">
+                  {m.periodo}
+                </Link>
+              ))}
             </div>
           </div>
       </div>

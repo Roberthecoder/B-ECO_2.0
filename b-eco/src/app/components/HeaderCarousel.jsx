@@ -52,7 +52,7 @@ export default function HeaderCarousel({ images }) {
   }, [currentIndex, carouselImages.length]);
 
   const currentImage = carouselImages[currentIndex];
-  const fitMode = currentImage.fitMode || "cover";
+  const fitMode = currentImage.fitMode === "contain" ? "contain" : "cover";
 
   return (
     <>

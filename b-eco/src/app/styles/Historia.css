@@ -1,0 +1,280 @@
+/* Página de Historia: línea del tiempo por mesa directiva */
+.historia-hero {
+  margin-top: 80px;
+  padding: 56px 16px 32px;
+  text-align: center;
+  background: linear-gradient(180deg, #eaf5ee 0%, #ffffff 100%);
+}
+
+.historia-hero h1 {
+  color: #006733;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 12px;
+}
+
+.historia-hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.historia-indice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.historia-indice a {
+  padding: 6px 14px;
+  border: 1px solid #006733;
+  border-radius: 999px;
+  color: #006733;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.historia-indice a:hover {
+  background: #006733;
+  color: #fff;
+}
+
+.linea-tiempo {
+  list-style: none;
+  max-width: 1000px;
+  margin: 24px auto 64px;
+  padding: 0 16px 0 48px;
+  position: relative;
+}
+
+.linea-tiempo::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: #b9dcc5;
+  border-radius: 2px;
+}
+
+.mesa {
+  position: relative;
+  margin-bottom: 40px;
+  scroll-margin-top: 100px;
+}
+
+.mesa-punto {
+  position: absolute;
+  left: -32px;
+  top: 22px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #006733;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 2px #006733;
+}
+
+.mesa-tarjeta {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mesa-encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.mesa-periodo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #006733;
+}
+
+.mesa-etiqueta {
+  background: #de7a5e;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.mesa-tarjeta h2 {
+  font-size: 1.15rem;
+  margin: 8px 0 12px;
+  color: #222;
+}
+
+.mesa-tarjeta h3 {
+  color: #006733;
+  margin: 24px 0 10px;
+  font-size: 1.1rem;
+}
+
+.mesa-resumen {
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.mesa-cargos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.mesa-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.mesa-foto {
+  padding: 0;
+  border: 0;
+  background: #f2f2f2;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+  aspect-ratio: 4 / 3;
+}
+
+.mesa-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mesa-foto:hover img {
+  transform: scale(1.04);
+}
+
+.mesa-proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mesa-proyectos li {
+  background: #eaf5ee;
+  color: #004d26;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.mesa-logros {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.mesa-logros a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.mesa-logros a:hover {
+  border-color: #006733;
+}
+
+.mesa-logros img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex: none;
+}
+
+.mesa-logros span {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.mesa-enlace {
+  display: inline-block;
+  margin-top: 20px;
+  color: #006733;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mesa-enlace:hover {
+  text-decoration: underline;
+}
+
+.foto-visor {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  cursor: zoom-out;
+}
+
+.foto-visor img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.foto-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .linea-tiempo {
+    padding-left: 36px;
+  }
+  .linea-tiempo::before {
+    left: 16px;
+  }
+  .mesa-punto {
+    left: -28px;
+  }
+  .mesa-tarjeta {
+    padding: 16px;
+  }
+  .mesa-fotos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

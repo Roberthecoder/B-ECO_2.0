@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { mesasDirectivas } from '../data/historia';
 import "../styles/Sidebar.css";
 
 function Sidebar({ yearSlug = "current" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [historiaOpen, setHistoriaOpen] = useState(false);
   const isArchive = yearSlug !== "current";
-  const basePath = isArchive ? `/historia/${yearSlug}` : "";
+  const basePath = isArchive ? `/historia/${yearSlug}` : "/";
 
   const openNav = () => {
     setIsOpen(true);
@@ -70,9 +71,14 @@ function Sidebar({ yearSlug = "current" }) {
                         </a>
                         {historiaOpen && (
                             <div className="sidebar-dropdown-menu">
-                                <Link href="/historia/2023-2025" className='titleHover dropdown-item'>
-                                    2023-2025
+                                <Link href="/historia" className='titleHover dropdown-item' onClick={closeNav}>
+                                    Línea del tiempo
                                 </Link>
+                                {mesasDirectivas.map((m) => (
+                                    <Link key={m.id} href={`/historia#mesa-${m.id}`} className='titleHover dropdown-item' onClick={closeNav}>
+                                        {m.periodo}
+                                    </Link>
+                                ))}
                             </div>
                         )}
                     </div>
