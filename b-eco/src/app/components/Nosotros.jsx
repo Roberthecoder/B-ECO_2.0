@@ -97,9 +97,19 @@ export default function Nosotros() {
             Síguenos en Instagram
           </a>
         </div>
-        <button type="button" className="nosotros-quienes-foto" onClick={() => setFotoAbierta(whoAreWeContent.image)} aria-label="Ampliar foto">
-          <img src={whoAreWeContent.image} alt="Voluntarios de B-Eco" />
-        </button>
+        <div className="nosotros-mesas">
+          {mesasDirectivas.filter((m) => m.fotoMesa).map((m) => (
+            <figure key={m.id} className="nosotros-mesa-foto">
+              <button type="button" onClick={() => setFotoAbierta(m.fotoMesa)} aria-label={`Ampliar foto de la mesa ${m.periodo}`}>
+                <img src={m.fotoMesa} alt={`Mesa directiva ${m.periodo}`} />
+              </button>
+              <figcaption>
+                <strong>Mesa {m.periodo}</strong>
+                <span>Presidencia: {m.presidencia}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section id="numeros" className="nosotros-numeros">

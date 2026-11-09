@@ -603,3 +603,52 @@
     aspect-ratio: 16 / 9;
   }
 }
+
+/* Fotos de las mesas en "¿Quiénes somos?" */
+.nosotros-mesas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nosotros-mesa-foto {
+  margin: 0;
+}
+
+.nosotros-mesa-foto button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  aspect-ratio: 3 / 2;
+  background: #eee;
+}
+
+.nosotros-mesa-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nosotros-mesa-foto figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.nosotros-mesa-foto figcaption strong {
+  color: #006733;
+}
+
+@media screen and (max-width: 700px) {
+  .nosotros-mesas {
+    order: -1;
+  }
+}

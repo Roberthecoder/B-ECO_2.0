@@ -6,6 +6,7 @@
 //
 // Cada mesa tiene:
 // - periodo, presidencia, resumen
+// - fotoMesa: foto de grupo de la mesa (sale en "¿Quiénes somos?")
 // - semestres: lista de semestres (nombre, fechas, estado, resumen,
 //   cifras, portada, acciones, fotos)
 //
@@ -40,6 +41,7 @@ export const mesasDirectivas = [
     periodo: '2025 – actual',
     etiqueta: 'Mesa actual',
     presidencia: 'Roberto Carlos Navarro Félix',
+    fotoMesa: '/historia/2026-ago-dic/portada-reconocimiento.jpg',
     mesa: [],
     resumen: [
       'Mesa directiva en funciones. Su meta: atender problemas ambientales concretos, generar conciencia y dejar resultados tangibles para la comunidad.',
@@ -161,6 +163,7 @@ export const mesasDirectivas = [
     periodo: '2023 – 2025',
     etiqueta: 'Mesa anterior',
     presidencia: 'Elizabeth Galván',
+    fotoMesa: 'https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FWhatsApp%20Image%202023-12-04%20at%2018.36.34.jpeg?alt=media&token=7b2a0c64-83a5-46b2-9870-9e7f44b52b4c',
     mesa: [],
     resumen: [
       'Etapa en la que B-Eco creció con talleres para niñas, niños y estudiantes, reforestación, un jardín polinizador y la recuperación de espacios públicos con llantas recicladas.',
