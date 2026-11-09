@@ -19,8 +19,8 @@ import { cardsContent as tarjetas2023 } from './years/2023-2025/cards';
 
 export const mesasDirectivas = [
   {
-    id: '2026',
-    periodo: '2026 – actual',
+    id: '2025',
+    periodo: '2025 – actual',
     etiqueta: 'Mesa actual',
     presidencia: 'Roberto Carlos Navarro Félix',
     mesa: [],
