@@ -1,7 +1,6 @@
 /* Fotos del carrusel: siempre con su proporción natural (sin estirarse) */
 .carousel-img {
   display: block;
-  margin-top: 80px;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 7;

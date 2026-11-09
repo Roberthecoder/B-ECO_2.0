@@ -64,3 +64,17 @@
     align-self: center;
     margin-block: 2rem;    
 }
+.boton-historia {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #006733;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.boton-historia:hover {
+  background: #004d26;
+}

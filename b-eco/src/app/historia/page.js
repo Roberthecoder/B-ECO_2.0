@@ -1,10 +1,6 @@
-import Historia from '../components/Historia';
+import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Historia | B-ECO',
-  description: 'Registro vivo de B-Eco: cada mesa directiva, sus proyectos, logros y fotos.',
-};
-
+// La historia ahora vive en la página "Nosotros"
 export default function HistoriaIndex() {
-  return <Historia />;
+  redirect('/nosotros');
 }

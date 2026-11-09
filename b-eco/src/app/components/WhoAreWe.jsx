@@ -27,6 +27,9 @@ export default function WhoAreWe({ content }) {
               {paragraph}
             </p>
           ))}
+          <a href="/nosotros" className="boton-historia">
+            Conoce nuestra historia completa →
+          </a>
         </div>
         <div className="leftSideWho">
           <img

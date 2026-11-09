@@ -1,0 +1,46 @@
+.accesos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 1000px;
+  margin: 20px auto 0;
+  padding: 0 16px;
+}
+
+.acceso {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease;
+}
+
+.acceso:hover {
+  transform: translateY(-2px);
+}
+
+.acceso-historia { background: #006733; }
+.acceso-juegos { background: #de7a5e; }
+.acceso-instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
+
+.acceso-icono { font-size: 1.8rem; line-height: 1; }
+.acceso-titulo { font-size: 1.2rem; font-weight: 800; }
+.acceso-texto { font-size: 0.95rem; opacity: 0.95; }
+
+@media screen and (max-width: 700px) {
+  .accesos {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .acceso {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    padding: 12px 14px;
+  }
+  .acceso-icono { grid-row: span 2; align-self: center; }
+}

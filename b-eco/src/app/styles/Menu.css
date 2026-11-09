@@ -1,0 +1,140 @@
+/* Menú principal (siempre visible) */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 16px;
+  gap: 16px;
+}
+
+.menu-logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.menu-logo {
+  width: 110px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.menu-logo-texto {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.menu-enlaces {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.menu-enlace {
+  color: #006733;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-enlace:hover,
+.menu-enlace.activo {
+  background: #006733;
+  color: #fff;
+}
+
+.menu-enlace.destacado {
+  border: 2px solid #de7a5e;
+  color: #c9654a;
+}
+
+.menu-enlace.destacado:hover {
+  background: #de7a5e;
+  color: #fff;
+}
+
+.menu-instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+}
+
+.menu-instagram:hover {
+  opacity: 0.9;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+.menu-espacio {
+  height: 80px;
+}
+
+/* Celular y tableta: logo arriba y fila de botones deslizable abajo */
+@media screen and (max-width: 940px) {
+  .menu-fila {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 6px 0 8px;
+    gap: 6px;
+  }
+
+  .menu-logos {
+    justify-content: center;
+  }
+
+  .menu-logo {
+    width: 80px;
+    height: 44px;
+  }
+
+  .menu-logo-texto {
+    height: 38px;
+  }
+
+  .menu-enlaces {
+    overflow-x: auto;
+    padding: 0 12px;
+    gap: 6px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-enlaces::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-enlace {
+    font-size: 0.95rem;
+    padding: 7px 12px;
+    background: #eaf5ee;
+  }
+
+  .menu-enlace.destacado {
+    background: #fff4f0;
+  }
+
+  .menu-enlace.menu-instagram {
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+    color: #fff;
+  }
+
+  .menu-espacio {
+    height: 104px;
+  }
+}

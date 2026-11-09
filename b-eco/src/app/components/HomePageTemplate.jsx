@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+import Menu from './Menu';
+import Accesos from './Accesos';
 import HeaderCarousel from './HeaderCarousel';
 import WhoAreWe from './WhoAreWe';
 import Projects from './Projects';
@@ -27,9 +27,10 @@ export default function HomePageTemplate({ config, yearSlug = "current" }) {
 
   return (
     <main>
-      {isMobile ? <Sidebar yearSlug={yearSlug} /> : <Navbar yearSlug={yearSlug} />}
+      <Menu yearSlug={yearSlug} />
       <div id="inicio"/>
       <HeaderCarousel images={config.headerCarouselImages}/>
+      {yearSlug === "current" && <Accesos/>}
       <div id="quienes-somos"/>
       <WhoAreWe content={config.whoAreWeContent}/>
       <div id="proyectos"/>

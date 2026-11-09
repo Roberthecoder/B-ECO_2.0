@@ -420,11 +420,10 @@ El sitio está configurado con **Vercel** para despliegue automático:
 
 ## 📦 Archivar una Mesa Directiva
 
-> **Línea del tiempo (`/historia`)**: la historia del grupo vive en un solo archivo,
-> `b-eco/src/app/data/historia.js`. Cada mesa directiva es un bloque con su periodo,
-> presidencia, resumen, fotos, proyectos y logros. Para agregar una mesa nueva, copia un
-> bloque, pégalo **hasta arriba** de la lista y cambia sus datos. El menú "Historia" se
-> actualiza solo. Los pasos de abajo sirven si además quieres guardar la página completa
+> **Nosotros e historia (`/nosotros`)**: la historia del grupo vive en un solo archivo,
+> `b-eco/src/app/data/historia.js`. Cada mesa directiva tiene semestres, y cada semestre
+> tiene acciones (fecha, título, texto, foto). Las fotos nuevas van en `b-eco/public/historia/`. Para agregar una mesa nueva, copia un
+> bloque, pégalo **hasta arriba** de la lista y cambia sus datos. Los pasos de abajo sirven si además quieres guardar la página completa
 > de esa mesa en `/historia/<periodo>`.
 >
 > **Fotos**: ya no se deforman. En `carousel-images.json`, `fitMode` puede ser `"cover"`

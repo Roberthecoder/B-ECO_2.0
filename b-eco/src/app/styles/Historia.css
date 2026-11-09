@@ -1,7 +1,6 @@
 /* Página de Historia: línea del tiempo por mesa directiva */
 .historia-hero {
-  margin-top: 80px;
-  padding: 56px 16px 32px;
+  padding: 40px 16px 28px;
   text-align: center;
   background: linear-gradient(180deg, #eaf5ee 0%, #ffffff 100%);
 }
@@ -109,13 +108,14 @@
   border-radius: 999px;
 }
 
+.mesa-presidencia,
 .mesa-tarjeta h2 {
   font-size: 1.15rem;
   margin: 8px 0 12px;
   color: #222;
 }
 
-.mesa-tarjeta h3 {
+.mesa-subtitulo {
   color: #006733;
   margin: 24px 0 10px;
   font-size: 1.1rem;
@@ -386,5 +386,220 @@
   }
   .semestre-portada img {
     max-height: 300px;
+  }
+}
+
+/* Nosotros: quiénes somos */
+.nosotros-quienes {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.nosotros-quienes h2,
+.nosotros-numeros h2,
+.nosotros-linea h2 {
+  color: #006733;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 12px;
+}
+
+.nosotros-quienes p {
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.nosotros-quienes .boton-instagram {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nosotros-quienes-foto {
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  aspect-ratio: 3 / 2;
+}
+
+.nosotros-quienes-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nosotros: en números */
+.nosotros-numeros {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.nosotros-numeros ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.nosotros-numeros li {
+  background: #eaf5ee;
+  border-radius: 12px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nosotros-numeros strong {
+  font-size: 1.8rem;
+  color: #006733;
+}
+
+.nosotros-numeros span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.nosotros-linea {
+  max-width: 1000px;
+  margin: 48px auto 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.nosotros-linea-intro {
+  color: #555;
+}
+
+/* Acciones de la línea del tiempo */
+.acciones {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accion {
+  display: flex;
+  gap: 12px;
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.accion-logro {
+  background: #fff8e6;
+  border-color: #f3d27a;
+}
+
+.accion-proximo {
+  background: #f2f7ff;
+  border-color: #b8cdf0;
+}
+
+.accion-foto {
+  flex: none;
+  width: 120px;
+  height: 90px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #eee;
+}
+
+.accion-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.accion-cuerpo h4 {
+  margin: 4px 0;
+  font-size: 1.05rem;
+  color: #222;
+}
+
+.accion-cuerpo p {
+  margin: 0;
+  line-height: 1.45;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.accion-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.accion-fecha {
+  font-weight: 700;
+  color: #006733;
+}
+
+.accion-tipo {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #eaf5ee;
+  color: #004d26;
+  font-weight: 700;
+}
+
+.accion-tipo.tipo-logro {
+  background: #f9e2a0;
+  color: #6b4e00;
+}
+
+.accion-tipo.tipo-proximo {
+  background: #d6e4fb;
+  color: #1d3f78;
+}
+
+.accion-enlace {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: #dd2a7b;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 700px) {
+  .nosotros-quienes {
+    grid-template-columns: 1fr;
+  }
+  .nosotros-quienes-foto {
+    order: -1;
+  }
+  .accion {
+    flex-direction: column;
+  }
+  .accion-foto {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 }

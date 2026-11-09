@@ -1,12 +1,15 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+import Menu from './Menu';
 import Footer from './Footer';
-import { mesasDirectivas } from '../data/historia';
+import { mesasDirectivas, cifrasGenerales } from '../data/historia';
+import { whoAreWeContent } from '../data/years/current/who-are-we';
+import { INSTAGRAM_URL } from '../data/redes';
 import '../styles/Page.css';
 import '../styles/Historia.css';
+
+const ETIQUETA_TIPO = { logro: '🏆 Logro', proximo: '🗓️ Próximo', accion: '🌱 Acción' };
 
 function Galeria({ fotos, etiqueta, onAbrir }) {
   if (!fotos?.length) return null;
@@ -27,16 +30,34 @@ function Galeria({ fotos, etiqueta, onAbrir }) {
   );
 }
 
-export default function Historia() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [fotoAbierta, setFotoAbierta] = useState(null);
+function Accion({ accion, onAbrir }) {
+  const tipo = accion.tipo || 'accion';
+  return (
+    <li className={`accion accion-${tipo}`}>
+      {accion.foto && (
+        <button type="button" className="accion-foto" onClick={() => onAbrir(accion.foto)} aria-label="Ampliar foto">
+          <img src={accion.foto} alt="" loading="lazy" />
+        </button>
+      )}
+      <div className="accion-cuerpo">
+        <div className="accion-meta">
+          <span className="accion-fecha">{accion.fecha}</span>
+          <span className={`accion-tipo tipo-${tipo}`}>{ETIQUETA_TIPO[tipo]}</span>
+        </div>
+        <h4>{accion.titulo}</h4>
+        {accion.texto && <p>{accion.texto}</p>}
+        {accion.enlace && (
+          <a href={accion.enlace} target="_blank" rel="noreferrer" className="accion-enlace">
+            Ver en Instagram →
+          </a>
+        )}
+      </div>
+    </li>
+  );
+}
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 940);
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+export default function Nosotros() {
+  const [fotoAbierta, setFotoAbierta] = useState(null);
 
   useEffect(() => {
     if (!fotoAbierta) return;
@@ -45,21 +66,60 @@ export default function Historia() {
     return () => window.removeEventListener('keydown', cerrar);
   }, [fotoAbierta]);
 
+  const totalAcciones = mesasDirectivas.reduce(
+    (n, m) => n + (m.semestres || []).reduce((k, s) => k + (s.acciones?.length || 0), 0),
+    0
+  );
+
   return (
     <main>
-      {isMobile ? <Sidebar /> : <Navbar />}
+      <Menu />
 
       <header className="historia-hero">
-        <h1>Nuestra historia</h1>
-        <p>
-          El registro vivo de B-Eco: cada mesa directiva, lo que construyó y las personas que lo hicieron posible.
-        </p>
-        <nav className="historia-indice" aria-label="Mesas directivas">
+        <h1>Nosotros</h1>
+        <p>Quiénes somos y todo lo que hemos hecho, mesa por mesa y semestre por semestre.</p>
+        <nav className="historia-indice" aria-label="Ir a">
+          <a href="#quienes-somos">Quiénes somos</a>
+          <a href="#numeros">En números</a>
           {mesasDirectivas.map((m) => (
-            <a key={m.id} href={`#mesa-${m.id}`}>{m.periodo}</a>
+            <a key={m.id} href={`#mesa-${m.id}`}>Mesa {m.periodo}</a>
           ))}
         </nav>
       </header>
+
+      <section id="quienes-somos" className="nosotros-quienes">
+        <div className="nosotros-quienes-texto">
+          <h2>¿Quiénes somos?</h2>
+          {whoAreWeContent.paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="boton-instagram">
+            Síguenos en Instagram
+          </a>
+        </div>
+        <button type="button" className="nosotros-quienes-foto" onClick={() => setFotoAbierta(whoAreWeContent.image)} aria-label="Ampliar foto">
+          <img src={whoAreWeContent.image} alt="Voluntarios de B-Eco" />
+        </button>
+      </section>
+
+      <section id="numeros" className="nosotros-numeros">
+        <h2>B-Eco en números</h2>
+        <ul>
+          {cifrasGenerales.map((c) => (
+            <li key={c.texto}>
+              <strong>{c.valor}</strong>
+              <span>{c.texto}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="nosotros-linea">
+        <h2>Nuestra historia</h2>
+        <p className="nosotros-linea-intro">
+          {totalAcciones} acciones y logros registrados. Toca cualquier foto para verla en grande.
+        </p>
+      </section>
 
       <ol className="linea-tiempo">
         {mesasDirectivas.map((m) => (
@@ -67,10 +127,10 @@ export default function Historia() {
             <span className="mesa-punto" aria-hidden="true" />
             <article className="mesa-tarjeta">
               <div className="mesa-encabezado">
-                <span className="mesa-periodo">{m.periodo}</span>
+                <span className="mesa-periodo">Mesa {m.periodo}</span>
                 {m.etiqueta && <span className="mesa-etiqueta">{m.etiqueta}</span>}
               </div>
-              <h2>Presidencia: {m.presidencia}</h2>
+              <h3 className="mesa-presidencia">Presidencia: {m.presidencia}</h3>
 
               {m.mesa?.length > 0 && (
                 <ul className="mesa-cargos">
@@ -107,13 +167,10 @@ export default function Historia() {
                         <p key={i} className="mesa-resumen">{parrafo}</p>
                       ))}
 
-                      {sem.cifras?.length > 0 && (
-                        <ul className="semestre-cifras">
-                          {sem.cifras.map((c) => (
-                            <li key={c.texto}>
-                              <strong>{c.valor}</strong>
-                              <span>{c.texto}</span>
-                            </li>
+                      {sem.acciones?.length > 0 && (
+                        <ul className="acciones">
+                          {sem.acciones.map((a) => (
+                            <Accion key={a.titulo} accion={a} onAbrir={setFotoAbierta} />
                           ))}
                         </ul>
                       )}
@@ -126,39 +183,14 @@ export default function Historia() {
 
               {m.fotos?.length > 0 && (
                 <>
-                  {m.tituloFotos && <h3>{m.tituloFotos}</h3>}
+                  {m.tituloFotos && <h3 className="mesa-subtitulo">{m.tituloFotos}</h3>}
                   <Galeria fotos={m.fotos} etiqueta={`mesa ${m.periodo}`} onAbrir={setFotoAbierta} />
-                </>
-              )}
-
-              {m.proyectos?.length > 0 && (
-                <>
-                  <h3>Proyectos</h3>
-                  <ul className="mesa-proyectos">
-                    {m.proyectos.map((p) => <li key={p}>{p}</li>)}
-                  </ul>
-                </>
-              )}
-
-              {m.logros?.length > 0 && (
-                <>
-                  <h3>Logros y reconocimientos</h3>
-                  <ul className="mesa-logros">
-                    {m.logros.map((l) => (
-                      <li key={l.texto}>
-                        <a href={l.enlace} target="_blank" rel="noreferrer">
-                          {l.imagen && <img src={l.imagen} alt="" loading="lazy" />}
-                          <span>{l.texto}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
                 </>
               )}
 
               {m.pagina && (
                 <Link href={m.pagina} className="mesa-enlace">
-                  Ver la página de esta mesa →
+                  Ver la página web de esta mesa →
                 </Link>
               )}
             </article>
