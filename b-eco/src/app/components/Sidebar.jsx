@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { mesasDirectivas } from '../data/historia';
+import { INSTAGRAM_URL } from '../data/redes';
 import "../styles/Sidebar.css";
 
 function Sidebar({ yearSlug = "current" }) {
@@ -55,14 +56,17 @@ function Sidebar({ yearSlug = "current" }) {
                     <a href={`${basePath}#proyectos`} className='titleHover'>
                         Proyectos
                     </a>
-                    {/* <a href="#ecoserpiente" className='titleHover'>
-                        EcoSerpiente
-                    </a>     */}
+                    <a href={`${basePath}#minijuegos`} className='titleHover' onClick={closeNav}>
+                        Minijuegos
+                    </a>
                     <a href={`${basePath}#siguenos`} className='titleHover'>
                         Síguenos
                     </a>
                     <a href={`${basePath}#contacto`} className='titleHover'>
                         Contacto
+                    </a>
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className='titleHover'>
+                        Instagram
                     </a>
 
                     <div className="sidebar-dropdown">

@@ -278,3 +278,113 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Semestres dentro de una mesa */
+.semestres {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.semestre {
+  border-left: 4px solid #b9dcc5;
+  padding: 4px 0 4px 16px;
+  scroll-margin-top: 100px;
+}
+
+.semestre-encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.semestre-encabezado h3 {
+  margin: 0;
+  color: #006733;
+  font-size: 1.2rem;
+}
+
+.semestre-fechas {
+  color: #555;
+  font-weight: 600;
+}
+
+.semestre-estado {
+  background: #006733;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.semestre-portada {
+  margin: 0 0 12px;
+}
+
+.semestre-portada button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #f2f2f2;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.semestre-portada img {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.semestre-portada figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.semestre-cifras {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.semestre-cifras li {
+  background: #eaf5ee;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.semestre-cifras strong {
+  font-size: 1.5rem;
+  color: #006733;
+}
+
+.semestre-cifras span {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.35;
+}
+
+@media screen and (max-width: 600px) {
+  .semestre {
+    padding-left: 10px;
+  }
+  .semestre-portada img {
+    max-height: 300px;
+  }
+}

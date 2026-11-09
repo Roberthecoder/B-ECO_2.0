@@ -121,3 +121,19 @@
     padding-left: 24px;
   }
 }
+.boton-instagram {
+  display: inline-block;
+  align-self: center;
+  text-align: center;
+  margin: 8px 0 24px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.boton-instagram:hover {
+  opacity: 0.9;
+}

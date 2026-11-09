@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { mesasDirectivas } from "../data/historia";
+import { INSTAGRAM_URL } from "../data/redes";
 
 // Styles
 import "../styles/Navbar.css";
@@ -41,14 +42,17 @@ const Navbar = ({ yearSlug = "current" }) => {
           <a href={`${basePath}#proyectos`} className="block">
             Proyectos
           </a>
-          <a href={`${basePath}#ecoserpiente`} className="block">
-            EcoSerpiente
+          <a href={`${basePath}#minijuegos`} className="block">
+            Minijuegos
           </a>
           <a href={`${basePath}#siguenos`} className="block">
             Síguenos
           </a>
           <a href={`${basePath}#contacto`} className="block">
             Contacto
+          </a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="block instagram-link" aria-label="Instagram de B-Eco">
+            Instagram
           </a>
 
           <div className="dropdown">

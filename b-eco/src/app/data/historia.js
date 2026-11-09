@@ -7,7 +7,8 @@
 // - presidencia:  nombre de quien preside
 // - mesa:         otros cargos (opcional): [{ cargo: "Tesorería", nombre: "..." }]
 // - resumen:      uno o dos párrafos sobre lo que pasó
-// - fotos:        enlaces de Firebase Storage (carpeta Assets/)
+// - semestres:    (opcional) lo que pasó cada semestre: resumen, cifras, portada y fotos
+// - fotos:        enlaces de Firebase Storage o rutas en public/ (ej. /historia/...)
 // - logros:       reconocimientos o hitos (opcional)
 // - proyectos:    nombres de proyectos (opcional)
 // - pagina:       enlace a la página completa de esa mesa (opcional)
@@ -25,12 +26,90 @@ export const mesasDirectivas = [
     presidencia: 'Roberto Carlos Navarro Félix',
     mesa: [],
     resumen: [
-      'Mesa directiva en funciones.',
-      'Próximo proyecto (febrero–junio 2027): restauración del Sendero Ecológico Didáctico del Parque Metropolitano de Guadalajara, con el jardín polinizador, el estanque y el invernadero. Será un proyecto de Servicio Social con cerca de 40 voluntarios los sábados.',
+      'Mesa directiva en funciones. Su meta: atender problemas ambientales concretos, generar conciencia y dejar resultados tangibles para la comunidad.',
+    ],
+    // Cada semestre de la mesa, del más reciente al más antiguo.
+    // portada: la foto "insignia" del semestre (se muestra grande).
+    semestres: [
+      {
+        id: '2027-ene-jun',
+        nombre: '4.º semestre',
+        fechas: 'Enero – junio 2027',
+        estado: 'Próximo',
+        resumen: [
+          'Segunda etapa de la restauración del Sendero Ecológico Didáctico (S.E.D.) del Parque Metropolitano de Guadalajara, ahora como proyecto de Servicio Social: jardín polinizador, estanque e invernadero, los sábados de 9:00 a 13:00.',
+        ],
+        cifras: [],
+        fotos: [],
+      },
+      {
+        id: '2026-ago-dic',
+        nombre: '3.er semestre',
+        fechas: 'Agosto – diciembre 2026',
+        estado: 'En curso',
+        resumen: [
+          'Arrancamos la restauración del Sendero Ecológico Didáctico (S.E.D.) del Parque Metropolitano: deshierbe del jardín polinizador, limpieza de áreas invadidas por pasto y recorridos de reconocimiento con el equipo del parque.',
+        ],
+        cifras: [],
+        portada: {
+          src: '/historia/2026-ago-dic/portada-reconocimiento.jpg',
+          pie: 'La mesa directiva con su reconocimiento en el Sendero Ecológico Didáctico.',
+        },
+        fotos: [
+          '/historia/2026-ago-dic/sed-entrada.jpg',
+          '/historia/2026-ago-dic/bienvenida.jpg',
+          '/historia/2026-ago-dic/circulo.jpg',
+          '/historia/2026-ago-dic/recorrido.jpg',
+          '/historia/2026-ago-dic/trabajo-jardin.jpg',
+          '/historia/2026-ago-dic/jardin-polinizador.jpg',
+          '/historia/2026-ago-dic/deshierbe.jpg',
+          '/historia/2026-ago-dic/carretilla.jpg',
+          '/historia/2026-ago-dic/selfie-equipo.jpg',
+          '/historia/2026-ago-dic/plantando.jpg',
+        ],
+      },
+      {
+        id: '2026-ene-jun',
+        nombre: '2.º semestre',
+        fechas: 'Enero – junio 2026',
+        resumen: [
+          'Cinco líneas de trabajo que combinaron acción ambiental, vinculación con la comunidad, divulgación y biotecnología, con más de 100 voluntarios activos.',
+        ],
+        cifras: [
+          { valor: '680 kg', texto: 'de tapitas donadas a Cómplices A.C. para apoyar causas contra el cáncer' },
+          { valor: '50', texto: 'personas capacitadas en el curso de cultivo de hongos' },
+          { valor: '+100 kg', texto: 'de sustrato preparado para la granja de hongos' },
+          { valor: '~80', texto: 'cocos procesados para pruebas de fibra' },
+          { valor: '183', texto: 'hogares censados en La Primavera (perros y gatos), 16.96 km con 10 equipos' },
+          { valor: '50', texto: 'videos de concientización; el primero superó las 4,000 vistas' },
+        ],
+        portada: {
+          src: '/historia/2026-ene-jun/tapas-680kg.jpg',
+          pie: 'Parte de los 680 kg de tapitas antes de su entrega (26 de mayo de 2026).',
+        },
+        fotos: [],
+      },
+      {
+        id: '2025-ago-dic',
+        nombre: '1.er semestre',
+        fechas: 'Agosto – diciembre 2025',
+        resumen: [
+          'Semestre de gestión: trámites y acuerdos con el Bosque Los Colomos y el Parque Metropolitano para abrir el camino a los proyectos de campo de la mesa.',
+        ],
+        cifras: [],
+        fotos: [],
+      },
     ],
     fotos: carrusel2026.images.map((foto) => foto.img),
+    tituloFotos: 'Galería de la mesa',
     logros: [],
-    proyectos: ['Restauración del Sendero Ecológico Didáctico (2027)'],
+    proyectos: [
+      'Restauración del Sendero Ecológico Didáctico',
+      'Campaña de tapitas',
+      'Granja y curso de hongos',
+      'Censo en La Primavera',
+      'Videos de concientización',
+    ],
     pagina: '/',
   },
   {

@@ -8,6 +8,25 @@ import { mesasDirectivas } from '../data/historia';
 import '../styles/Page.css';
 import '../styles/Historia.css';
 
+function Galeria({ fotos, etiqueta, onAbrir }) {
+  if (!fotos?.length) return null;
+  return (
+    <div className="mesa-fotos">
+      {fotos.map((foto, i) => (
+        <button
+          key={foto}
+          type="button"
+          className="mesa-foto"
+          onClick={() => onAbrir(foto)}
+          aria-label={`Ver foto ${i + 1}: ${etiqueta}`}
+        >
+          <img src={foto} alt={`Foto ${i + 1} de B-Eco, ${etiqueta}`} loading="lazy" />
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function Historia() {
   const [isMobile, setIsMobile] = useState(false);
   const [fotoAbierta, setFotoAbierta] = useState(null);
@@ -65,20 +84,51 @@ export default function Historia() {
                 <p key={i} className="mesa-resumen">{parrafo}</p>
               ))}
 
-              {m.fotos?.length > 0 && (
-                <div className="mesa-fotos">
-                  {m.fotos.map((foto, i) => (
-                    <button
-                      key={foto}
-                      type="button"
-                      className="mesa-foto"
-                      onClick={() => setFotoAbierta(foto)}
-                      aria-label={`Ver foto ${i + 1} de la mesa ${m.periodo}`}
-                    >
-                      <img src={foto} alt={`Foto ${i + 1} de B-Eco, ${m.periodo}`} loading="lazy" />
-                    </button>
+              {m.semestres?.length > 0 && (
+                <div className="semestres">
+                  {m.semestres.map((sem) => (
+                    <section key={sem.id} id={`semestre-${sem.id}`} className="semestre">
+                      <div className="semestre-encabezado">
+                        <h3>{sem.nombre}</h3>
+                        <span className="semestre-fechas">{sem.fechas}</span>
+                        {sem.estado && <span className="semestre-estado">{sem.estado}</span>}
+                      </div>
+
+                      {sem.portada && (
+                        <figure className="semestre-portada">
+                          <button type="button" onClick={() => setFotoAbierta(sem.portada.src)} aria-label="Ampliar foto">
+                            <img src={sem.portada.src} alt={sem.portada.pie} loading="lazy" />
+                          </button>
+                          <figcaption>{sem.portada.pie}</figcaption>
+                        </figure>
+                      )}
+
+                      {sem.resumen?.map((parrafo, i) => (
+                        <p key={i} className="mesa-resumen">{parrafo}</p>
+                      ))}
+
+                      {sem.cifras?.length > 0 && (
+                        <ul className="semestre-cifras">
+                          {sem.cifras.map((c) => (
+                            <li key={c.texto}>
+                              <strong>{c.valor}</strong>
+                              <span>{c.texto}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <Galeria fotos={sem.fotos} etiqueta={`${sem.nombre}, ${sem.fechas}`} onAbrir={setFotoAbierta} />
+                    </section>
                   ))}
                 </div>
+              )}
+
+              {m.fotos?.length > 0 && (
+                <>
+                  {m.tituloFotos && <h3>{m.tituloFotos}</h3>}
+                  <Galeria fotos={m.fotos} etiqueta={`mesa ${m.periodo}`} onAbrir={setFotoAbierta} />
+                </>
               )}
 
               {m.proyectos?.length > 0 && (

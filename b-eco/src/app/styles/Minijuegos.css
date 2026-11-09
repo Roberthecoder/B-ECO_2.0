@@ -1,0 +1,250 @@
+/* Sección de minijuegos */
+.content-section.minijuegos {
+  display: block;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.minijuegos-intro {
+  font-size: 1.15rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.minijuegos-pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.minijuegos-pestana {
+  border: 2px solid #006733;
+  background: #fff;
+  color: #006733;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.minijuegos-pestana.activa,
+.minijuegos-pestana:hover {
+  background: #006733;
+  color: #fff;
+}
+
+.minijuegos-zona {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 360px;
+  display: flex;
+  justify-content: center;
+}
+
+.minijuegos-zona > * {
+  width: 100%;
+}
+
+/* Piezas comunes */
+.juego-pantalla {
+  background: #eaf5ee;
+  border-radius: 16px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.juego-pantalla h3 {
+  color: #006733;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.juego-pantalla p {
+  max-width: 460px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.juego-icono-grande {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.juego-boton {
+  margin-top: 12px;
+  background: #de7a5e;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.juego-boton:hover {
+  background: #c9654a;
+}
+
+.juego-record {
+  font-weight: 700;
+  color: #006733;
+}
+
+.juego-puntaje {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #006733;
+}
+
+.juego-repaso {
+  text-align: left;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-top: 8px;
+}
+
+.juego-repaso ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.juego-marcador {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Separa la basura */
+.separa-residuo {
+  background: #fff;
+  border: 2px dashed #b9dcc5;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.separa-icono {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.separa-nombre {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.separa-aviso {
+  min-height: 1.5em;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.separa-aviso.ok {
+  color: #2e7d32;
+}
+
+.separa-aviso.error {
+  color: #c62828;
+}
+
+.separa-botes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.separa-bote {
+  position: relative;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.separa-bote:active {
+  transform: scale(0.96);
+}
+
+.separa-bote-icono {
+  font-size: 1.8rem;
+}
+
+.separa-tecla {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Memorama */
+.memorama-tablero {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.memorama-carta {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 12px;
+  background: #006733;
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.memorama-carta.visible {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #b9dcc5;
+  transform: rotateY(0);
+}
+
+.memorama-carta.encontrada {
+  background: #eaf5ee;
+  cursor: default;
+}
+
+.memorama-dato {
+  min-height: 3em;
+  max-width: 460px;
+  margin: 14px auto 0;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 600px) {
+  .separa-botes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .memorama-carta {
+    font-size: 1.8rem;
+  }
+  .juego-marcador {
+    gap: 12px;
+    font-size: 1rem;
+  }
+}
