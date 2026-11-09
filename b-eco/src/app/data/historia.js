@@ -116,7 +116,7 @@ export const mesasDirectivas = [
     id: '2023-2025',
     periodo: '2023 – 2025',
     etiqueta: 'Mesa anterior',
-    presidencia: 'Por confirmar',
+    presidencia: 'Elizabeth Galván',
     mesa: [],
     resumen: [
       'Etapa en la que B-Eco creció con talleres para niñas, niños y estudiantes, proyectos de reforestación y la recuperación de espacios públicos con llantas recicladas.',
