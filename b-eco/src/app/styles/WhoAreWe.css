@@ -78,3 +78,40 @@
 .boton-historia:hover {
   background: #004d26;
 }
+
+/* Fotos de las mesas (la actual y la anterior) */
+.mesasWho {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mesaWho {
+    margin: 0;
+}
+
+.mesaWho .imageWho {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.mesaWho figcaption {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #444;
+    text-align: center;
+}
+
+.mesaWho figcaption strong {
+    color: #006733;
+}
+
+@media (max-width: 768px) {
+    .leftSideWho {
+        width: 100%;
+        margin-top: 16px;
+    }
+}

@@ -4,7 +4,7 @@ import React from "react";
 // Styles
 import "../styles/WhoAreWe.css";
 
-export default function WhoAreWe({ content }) {
+export default function WhoAreWe({ content, mesas }) {
   // Default content for backward compatibility
   const defaultContent = {
     title: "¿Quiénes Somos?",
@@ -32,11 +32,20 @@ export default function WhoAreWe({ content }) {
           </a>
         </div>
         <div className="leftSideWho">
-          <img
-            src={image}
-            className="imageWho"
-            alt="b-eco logo"
-          />
+          {mesas?.length ? (
+            <div className="mesasWho">
+              {mesas.map((m) => (
+                <figure key={m.id} className="mesaWho">
+                  <img src={m.fotoMesa} className="imageWho" alt={`Mesa directiva ${m.periodo}`} />
+                  <figcaption>
+                    <strong>Mesa {m.periodo}</strong> · Presidencia: {m.presidencia}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <img src={image} className="imageWho" alt="Voluntarios de B-Eco" />
+          )}
         </div>
       </div>
     </>

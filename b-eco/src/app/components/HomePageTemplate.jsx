@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Menu from './Menu';
 import Accesos from './Accesos';
+import { mesasDirectivas } from '../data/historia';
 import HeaderCarousel from './HeaderCarousel';
 import WhoAreWe from './WhoAreWe';
 import Projects from './Projects';
@@ -32,7 +33,7 @@ export default function HomePageTemplate({ config, yearSlug = "current" }) {
       <HeaderCarousel images={config.headerCarouselImages}/>
       {yearSlug === "current" && <Accesos/>}
       <div id="quienes-somos"/>
-      <WhoAreWe content={config.whoAreWeContent}/>
+      <WhoAreWe content={config.whoAreWeContent} mesas={yearSlug === "current" ? mesasDirectivas.filter((m) => m.fotoMesa) : null}/>
       <div id="proyectos"/>
       <Projects projects={config.projectsData}/>
       <div id="ecoserpiente"/>
