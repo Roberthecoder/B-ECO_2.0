@@ -1,84 +1,90 @@
 "use client";
-// Core
-import React, { useState, useRef, useEffect } from "react";
-
-// Styles
+import React, { useState, useEffect } from "react";
 import "../styles/Projects.css";
-
-// Utils
 import { projectsResources } from "../utils/Projects";
 
+// Cada proyecto puede traer:
+// - image: foto principal (obligatoria)
+// - fotos: más fotos (opcional); se ven como miniaturas para cambiar la principal
+// - periodo: etiqueta con la fecha o la mesa (opcional)
 const Projects = ({ projects }) => {
-  // Use prop if provided, otherwise fallback to imported data
   const projectsList = projects || projectsResources;
-
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fotoIndex, setFotoIndex] = useState(0);
 
-  // Preload all project images to prevent reloading on carousel navigation
+  const proyecto = projectsList[currentIndex];
+  const fotos = [proyecto.image, ...(proyecto.fotos || [])];
+
+  // Precarga las fotos principales para que el cambio sea rápido
   useEffect(() => {
-    projectsList.forEach((project) => {
+    projectsList.forEach((p) => {
       const img = new Image();
-      img.src = project.image;
+      img.src = p.image;
     });
   }, [projectsList]);
 
-  const goToPrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    } else {
-      setCurrentIndex(projectsList.length - 1);
-    }
-  };
-
-  const goToNext = () => {
-    if (currentIndex < projectsList.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setCurrentIndex(0);
-    }
+  const ir = (indice) => {
+    const total = projectsList.length;
+    setCurrentIndex((indice + total) % total);
+    setFotoIndex(0);
   };
 
   return (
     <div className="containerProject">
-      <h2 className="title" style={{ marginBottom: 50 }}>
+      <h2 className="title" style={{ marginBottom: 32 }}>
         Proyectos
       </h2>
-      <div
-        className="projectsContainer"
-      >
-        <p className="arrows" onClick={goToPrevious}>
+      <p className="proyectos-contador">
+        Proyecto {currentIndex + 1} de {projectsList.length}
+      </p>
+      <div className="projectsContainer">
+        <button type="button" className="arrows" onClick={() => ir(currentIndex - 1)} aria-label="Proyecto anterior">
           &#10092;
-        </p>
+        </button>
         <div className="mainContainer">
-              <div className="projectSlider">
-
-                  <img
-                    src={projectsList[currentIndex].image}
-                    alt={projectsList[currentIndex].title}
-                    className="projectImage"
-                  />
-
+          <div className="projectSlider">
+            <img src={fotos[fotoIndex]} alt={proyecto.title} className="projectImage" />
+            {fotos.length > 1 && (
+              <div className="proyecto-miniaturas">
+                {fotos.map((f, i) => (
+                  <button
+                    key={f}
+                    type="button"
+                    className={`proyecto-miniatura ${i === fotoIndex ? "activa" : ""}`}
+                    onClick={() => setFotoIndex(i)}
+                    aria-label={`Ver foto ${i + 1} de ${proyecto.title}`}
+                  >
+                    <img src={f} alt="" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="textContainer">
-            <h2 style={{ textAlign: "center", marginBottom: 16 }}>
-              {projectsList[currentIndex].title}
-            </h2>
-            <p style={{ fontSize: "1.2rem" }}>
-              {projectsList[currentIndex].description}
-            </p>
+            {proyecto.periodo && <span className="proyecto-periodo">{proyecto.periodo}</span>}
+            <h2 style={{ textAlign: "center", marginBottom: 16 }}>{proyecto.title}</h2>
+            <p style={{ fontSize: "1.1rem", lineHeight: 1.5 }}>{proyecto.description}</p>
           </div>
         </div>
-        <p className="arrows" onClick={goToNext}>
+        <button type="button" className="arrows" onClick={() => ir(currentIndex + 1)} aria-label="Proyecto siguiente">
           &#10093;
-        </p>
+        </button>
       </div>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 24 }}>
-        {projectsList.map((project, index) => (
-          <div
-            key={index}
+
+      <div className="proyectos-botones-celular">
+        <button type="button" onClick={() => ir(currentIndex - 1)}>‹ Anterior</button>
+        <button type="button" onClick={() => ir(currentIndex + 1)}>Siguiente ›</button>
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginTop: 20 }}>
+        {projectsList.map((p, index) => (
+          <button
+            key={p.title}
+            type="button"
             className={index === currentIndex ? "circle-colored" : "circles"}
-            onClick={() => setCurrentIndex(index)}
-          ></div>
+            onClick={() => ir(index)}
+            aria-label={p.title}
+          />
         ))}
       </div>
     </div>
