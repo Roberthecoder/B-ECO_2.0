@@ -56,7 +56,7 @@ export const mesasDirectivas = [
           {
             fecha: 'Feb – jun 2027',
             tipo: 'proximo',
-            titulo: 'Restauración del Sendero Ecológico Didáctico: segunda etapa',
+            titulo: 'Recuperación de áreas del Sendero Ecológico Didáctico: segunda etapa',
             texto: 'Proyecto de Servicio Social en el Parque Metropolitano de Guadalajara: jardín polinizador, estanque e invernadero. Sábados de 9:00 a 13:00.',
           },
         ],
@@ -81,8 +81,8 @@ export const mesasDirectivas = [
           {
             fecha: 'Ago – dic 2026',
             tipo: 'accion',
-            titulo: 'Arranca la restauración del Sendero Ecológico Didáctico (S.E.D.)',
-            texto: 'Deshierbe del jardín polinizador, limpieza de áreas invadidas por pasto y recorridos con el equipo del Parque Metropolitano.',
+            titulo: 'Arranca la recuperación de áreas del Sendero Ecológico Didáctico (S.E.D.)',
+            texto: 'Recuperamos áreas del sendero: deshierbe del jardín polinizador, limpieza de zonas invadidas por pasto y recorridos con el equipo del Parque Metropolitano.',
             foto: '/historia/2026-ago-dic/sed-entrada.jpg',
           },
         ],

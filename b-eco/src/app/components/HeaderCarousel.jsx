@@ -1,66 +1,48 @@
 "use client";
-// Core
-import React, { useState, useEffect } from "react";
-
-// Utils
+import React, { useEffect, useState } from "react";
 import HeaderCarouselImages from "../utils/HeaderCarouselImages";
-
 import "../styles/HeaderCarousel.css";
 
-const FADE_INTERVAL_MS = 12000;
+const INTERVALO_MS = 7000;
 
+// Todas las fotos están encimadas; solo la activa es visible.
+// Al cambiar, la nueva aparece y la anterior se desvanece al mismo tiempo,
+// así nunca hay saltos ni parpadeos.
 export default function HeaderCarousel({ images }) {
-  // Use prop if provided, otherwise fallback to imported data
-  const carouselImages = images || HeaderCarouselImages.images;
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fadeProp, setFadeProp] = useState({ fade: "fade-in" });
-
-  // Preload all carousel images to prevent reloading
-  useEffect(() => {
-    carouselImages.forEach((image) => {
-      const img = new Image();
-      img.src = image.img;
-    });
-  }, [carouselImages]);
+  const fotos = images || HeaderCarouselImages.images;
+  const [activa, setActiva] = useState(0);
 
   useEffect(() => {
-    const fadeTimeout = setTimeout(() => {
-      setFadeProp({ fade: "fade-out" });
-      const fadeTimeout2 = setTimeout(() => {
-        setFadeProp({ fade: "fade-in" });
-      }, 1000);
-      return () => {
-        clearTimeout(fadeTimeout2);
-      };
-    }, FADE_INTERVAL_MS - 1000);
-
-    return () => {
-      clearTimeout(fadeTimeout);
-    };
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (currentIndex === carouselImages.length - 1) {
-        setCurrentIndex(0);
-      } else {
-        setCurrentIndex(currentIndex + 1);
-      }
-    }, FADE_INTERVAL_MS);
-    return () => clearTimeout(timeout);
-  }, [currentIndex, carouselImages.length]);
-
-  const currentImage = carouselImages[currentIndex];
-  const fitMode = currentImage.fitMode === "contain" ? "contain" : "cover";
+    if (fotos.length < 2) return;
+    const t = setTimeout(() => setActiva((i) => (i + 1) % fotos.length), INTERVALO_MS);
+    return () => clearTimeout(t);
+  }, [activa, fotos.length]);
 
   return (
-    <>
-      <img
-        className={`carousel-img ${fadeProp.fade} carousel-img-${fitMode}`}
-        src={currentImage.img}
-        alt="b-eco header carousel"
-      />
-    </>
+    <div className="carousel">
+      {fotos.map((foto, i) => (
+        <img
+          key={foto.img}
+          src={foto.img}
+          alt={`Foto ${i + 1} de B-Eco`}
+          className={`carousel-img carousel-img-${foto.fitMode === "contain" ? "contain" : "cover"} ${i === activa ? "activa" : ""}`}
+          loading={i === 0 ? "eager" : "lazy"}
+          aria-hidden={i !== activa}
+        />
+      ))}
+      {fotos.length > 1 && (
+        <div className="carousel-puntos">
+          {fotos.map((foto, i) => (
+            <button
+              key={foto.img}
+              type="button"
+              className={`carousel-punto ${i === activa ? "activo" : ""}`}
+              onClick={() => setActiva(i)}
+              aria-label={`Ver foto ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

@@ -180,3 +180,34 @@
     cursor: pointer;
   }
 }
+
+.proyecto-cifras {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.proyecto-cifras li {
+  background: #eaf5ee;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.proyecto-cifras strong {
+  font-size: 1.6rem;
+  color: #006733;
+  line-height: 1.1;
+}
+
+.proyecto-cifras span {
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.3;
+}

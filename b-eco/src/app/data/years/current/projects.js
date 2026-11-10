@@ -1,20 +1,30 @@
 export const projectsResources = [
   // ---- Mesa 2025 – actual ----
   {
-    image: "/historia/2026-ago-dic/sed-entrada.jpg",
+    image: "/historia/2026-ago-dic/carretilla.jpg",
     fotos: [
-      "/historia/2026-ago-dic/jardin-polinizador.jpg",
+      "/historia/2026-ago-dic/trabajo-jardin.jpg",
       "/historia/2026-ago-dic/deshierbe.jpg",
-      "/historia/2026-ago-dic/carretilla.jpg",
+      "/historia/2026-ago-dic/bienvenida.jpg",
+      "/historia/2026-ago-dic/sed-entrada.jpg",
+    ],
+    cifras: [
+      { valor: "3", texto: "zonas por recuperar: jardín, estanque e invernadero" },
+      { valor: "hasta 40", texto: "voluntarios por sábado en 2027" },
+      { valor: "4 h", texto: "cada sábado, de 9:00 a 13:00" },
     ],
     periodo: "Ago 2026 – jun 2027 · En curso",
-    title: "Restauración del Sendero Ecológico Didáctico",
-    description: "Estamos recuperando el Sendero Ecológico Didáctico (S.E.D.) del Parque Metropolitano de Guadalajara: deshierbamos el jardín polinizador, limpiamos las áreas invadidas por pasto y vamos por el estanque y el invernadero. En 2027 continúa como proyecto de Servicio Social los sábados.",
+    title: "Restauración de áreas del Sendero Ecológico Didáctico",
+    description: "Estamos recuperando áreas del Sendero Ecológico Didáctico (S.E.D.) del Parque Metropolitano de Guadalajara: deshierbamos el jardín polinizador y limpiamos zonas invadidas por pasto. En 2027 el trabajo continúa como proyecto de Servicio Social los sábados.",
   },
   {
     image: "/proyectos/tapas-entrega.jpg",
     fotos: ["/proyectos/tapas-equipo.jpg", "/historia/2026-ene-jun/tapas-680kg.jpg"],
     periodo: "Ene – jun 2026",
+    cifras: [
+      { valor: "680 kg", texto: "de tapitas donadas" },
+      { valor: "1", texto: "centro de acopio en casa de un compañero" },
+    ],
     title: "680 kg de tapitas contra el cáncer",
     description: "Durante todo el semestre recolectamos tapas plásticas con nuestra red de voluntarios y un centro de acopio en casa de un compañero. El 26 de mayo de 2026 entregamos 680 kg a Cómplices A.C.: menos plástico en lugares indebidos y apoyo a causas contra el cáncer.",
   },
@@ -22,6 +32,11 @@ export const projectsResources = [
     image: "/proyectos/censo-brigada.jpg",
     fotos: ["/proyectos/censo-voluntarios.jpg", "/proyectos/censo-recorrido.jpg"],
     periodo: "24 may 2026",
+    cifras: [
+      { valor: "183", texto: "hogares censados" },
+      { valor: "16.96 km", texto: "de calles recorridas" },
+      { valor: "10", texto: "brigadas de voluntarios" },
+    ],
     title: "Censo de perros y gatos en La Primavera",
     description: "Con el Bosque La Primavera, 10 brigadas recorrieron 16.96 km de calles y censaron 183 hogares del poblado. La información respalda campañas de vacunación, esterilización y tenencia responsable para proteger a la fauna silvestre del bosque.",
   },
@@ -29,6 +44,11 @@ export const projectsResources = [
     image: "/proyectos/hongos-equipo.jpg",
     fotos: ["/proyectos/hongos-sustrato.jpg", "/proyectos/hongos-preparando.jpg"],
     periodo: "15 may 2026",
+    cifras: [
+      { valor: "50", texto: "personas capacitadas" },
+      { valor: "+100 kg", texto: "de sustrato preparado" },
+      { valor: "~80", texto: "cocos procesados" },
+    ],
     title: "Granja y curso de cultivo de hongos",
     description: "Capacitamos a 50 personas en cultivo de hongos y preparamos más de 100 kg de sustrato para terminar de establecer la granja. También probamos fibra de unos 80 cocos como sustrato alternativo: biotecnología para convertir residuos en alimento.",
   },

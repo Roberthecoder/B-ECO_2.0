@@ -1,7 +1,7 @@
 export const cardsContent = [
     {
         img: "https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FProyectoJoven2.png?alt=media&token=4d01632f-fa5d-4977-9b40-95de78cfac68",
-        text: "Galardón de participación ciudadana y gobernanza, Zapopan 2023 'Poyecto joven'. Muchas gracias a todoa la comunidad B-eco por formar parte...", 
+        text: "Galardón de participación ciudadana y gobernanza, Zapopan 2023 “Proyecto joven”. Muchas gracias a toda la comunidad...", 
         link: 'https://www.instagram.com/p/CxT2V4CxgG_/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA%3D%3D',
     },
     {

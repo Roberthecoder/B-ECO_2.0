@@ -7,6 +7,7 @@ import { projectsResources } from "../utils/Projects";
 // - image: foto principal (obligatoria)
 // - fotos: más fotos (opcional); se ven como miniaturas para cambiar la principal
 // - periodo: etiqueta con la fecha o la mesa (opcional)
+// - cifras: números destacados (opcional): [{ valor: "680 kg", texto: "de tapitas" }]
 const Projects = ({ projects }) => {
   const projectsList = projects || projectsResources;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,6 +64,16 @@ const Projects = ({ projects }) => {
           <div className="textContainer">
             {proyecto.periodo && <span className="proyecto-periodo">{proyecto.periodo}</span>}
             <h2 style={{ textAlign: "center", marginBottom: 16 }}>{proyecto.title}</h2>
+            {proyecto.cifras?.length > 0 && (
+              <ul className="proyecto-cifras">
+                {proyecto.cifras.map((c) => (
+                  <li key={c.texto}>
+                    <strong>{c.valor}</strong>
+                    <span>{c.texto}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
             <p style={{ fontSize: "1.1rem", lineHeight: 1.5 }}>{proyecto.description}</p>
           </div>
         </div>

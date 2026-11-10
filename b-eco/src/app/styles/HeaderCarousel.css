@@ -1,18 +1,30 @@
-/* Fotos del carrusel: siempre con su proporción natural (sin estirarse) */
-.carousel-img {
-  display: block;
+/* Carrusel principal: fotos encimadas que se desvanecen entre sí */
+.carousel {
+  position: relative;
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 7;
   max-height: 75vh;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
+  background: #eaf5ee;
 }
 
-/* Cover: recorta un poco las orillas para llenar el espacio */
+.carousel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.carousel-img.activa {
+  opacity: 1;
+}
+
+/* Cover: llena el espacio recortando un poco las orillas */
 .carousel-img-cover {
   object-fit: cover;
-  background-color: transparent;
 }
 
 /* Contain: muestra la foto completa con fondo blanco */
@@ -21,17 +33,39 @@
   background-color: white;
 }
 
-.fade-in {
-  transition: opacity 1s ease;
+.carousel-puntos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
+.carousel-punto {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-punto.activo {
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-img {
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .carousel-img {
+  .carousel {
     aspect-ratio: 4 / 3;
   }
 }
