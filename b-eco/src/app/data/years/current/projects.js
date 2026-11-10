@@ -10,7 +10,7 @@ export const projectsResources = [
     ],
     cifras: [
       { valor: "3", texto: "zonas por recuperar: jardín, estanque e invernadero" },
-      { valor: "hasta 40", texto: "voluntarios por sábado en 2027" },
+      { valor: "hasta 30", texto: "voluntarios por sábado en 2027" },
       { valor: "4 h", texto: "cada sábado, de 9:00 a 13:00" },
     ],
     periodo: "Ago 2026 – jun 2027 · En curso",
