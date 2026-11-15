@@ -202,7 +202,7 @@ export const mesasDirectivas = [
             fecha: '2023 – 2025',
             tipo: 'accion',
             titulo: 'De vuelta al parque',
-            texto: 'Transformamos llantas abandonadas en mobiliario para renovar un espacio comunitario.',
+            texto: 'Transformamos llantas abandonadas en mobiliario para renovar espacios comunitarios.',
             foto: fotoProyecto2023('De vuelta al parque'),
           },
           {
@@ -250,9 +250,86 @@ export const mesasDirectivas = [
         ],
         fotos: [],
       },
+      {
+        id: '2023-ene-jun',
+        nombre: 'El primer parque con llantas',
+        fechas: 'Enero – junio 2023',
+        portada: {
+          src: '/historia/2022/2023-parque-llantas-b.jpg',
+          pie: 'El equipo en el primer parque renovado con llantas, en Colinas de la Primavera, Zapopan.',
+        },
+        acciones: [
+          {
+            fecha: 'May 2023',
+            tipo: 'logro',
+            titulo: 'Primer parque renovado con llantas',
+            texto: 'En Colinas de la Primavera, Zapopan, convertimos un terreno abandonado en un parque con columpios, torres, mesas, juegos y un recorrido para perros, todo con llantas recicladas. Fueron seis meses de gestiones; se juntaron tres áreas del gobierno de Zapopan para ayudarnos, pusieron luz y mandaron patrullas. El día de la inauguración el parque se llenó de familias.',
+            foto: '/historia/2022/2023-parque-llantas-a.jpg',
+            enlace: 'https://conecta.tec.mx/es/noticias/guadalajara/educacion/de-vuelta-al-parque-estudiantes-de-tec-gdl-renuevan-area-en-zapopan',
+            textoEnlace: 'Leer la nota en Conecta →',
+          },
+        ],
+        fotos: [],
+      },
     ],
     fotos: carrusel2023.images.map((foto) => foto.img),
     tituloFotos: 'Galería de la mesa',
     pagina: '/historia/2023-2025',
+  },
+  {
+    id: '2022',
+    periodo: '2022',
+    titulo: 'Fundación · 2022',
+    etiqueta: 'Los inicios',
+    resumen: [
+      'B-Eco nació en febrero de 2022 con un grupo muy pequeño de colaboradores. Ese primer año se enfocó en crecer: muchas juntas para planear el futuro y los primeros talleres.',
+    ],
+    semestres: [
+      {
+        id: '2022-ago-dic',
+        nombre: 'Segundo semestre',
+        fechas: 'Agosto – diciembre 2022',
+        acciones: [
+          {
+            fecha: 'Oct 2022',
+            tipo: 'accion',
+            titulo: 'Talleres en una prepa de Tequila',
+            texto: 'Dimos varios talleres a estudiantes de un bachillerato en Tequila, Jalisco. Nos regalaron botellas y, como se ve, salimos muy felices.',
+            foto: '/historia/2022/2022-10-tequila-a.jpg',
+          },
+          {
+            fecha: 'Ago 2022',
+            tipo: 'logro',
+            titulo: 'Toma de protesta de la mesa directiva',
+            texto: 'Empieza la mesa directiva de agosto – diciembre 2022, con su toma de protesta como líderes estudiantiles LiFE.',
+            foto: '/historia/2022/2022-ad-mesa.jpg',
+          },
+        ],
+        fotos: ['/historia/2022/2022-10-tequila-b.jpg'],
+      },
+      {
+        id: '2022-feb-jun',
+        nombre: 'Primer semestre',
+        fechas: 'Febrero – junio 2022',
+        acciones: [
+          {
+            fecha: 'Jun 2022',
+            tipo: 'accion',
+            titulo: 'Primer taller: ciencia para niñas y niños de primaria',
+            texto: 'El único taller de ese semestre: experimentos de ciencia para alumnos de primaria.',
+            foto: '/historia/2022/2022-06-taller-ciencia.jpg',
+          },
+          {
+            fecha: 'Feb 2022',
+            tipo: 'logro',
+            titulo: 'Nace B-Eco',
+            texto: 'Se crea el grupo. En la foto están todos los colaboradores de ese momento, incluida la mesa directiva: éramos muy poquitos.',
+            foto: '/historia/2022/2022-02-fundacion.jpg',
+          },
+        ],
+        fotos: [],
+      },
+    ],
+    fotos: [],
   },
 ];

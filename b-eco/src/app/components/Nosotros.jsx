@@ -48,7 +48,7 @@ function Accion({ accion, onAbrir }) {
         {accion.texto && <p>{accion.texto}</p>}
         {accion.enlace && (
           <a href={accion.enlace} target="_blank" rel="noreferrer" className="accion-enlace">
-            Ver en Instagram →
+            {accion.textoEnlace || (accion.enlace.includes('instagram.com') ? 'Ver en Instagram →' : 'Ver más →')}
           </a>
         )}
       </div>
@@ -82,7 +82,7 @@ export default function Nosotros() {
           <a href="#quienes-somos">Quiénes somos</a>
           <a href="#numeros">En números</a>
           {mesasDirectivas.map((m) => (
-            <a key={m.id} href={`#mesa-${m.id}`}>Mesa {m.periodo}</a>
+            <a key={m.id} href={`#mesa-${m.id}`}>{m.titulo || `Mesa ${m.periodo}`}</a>
           ))}
         </nav>
       </header>
@@ -137,10 +137,10 @@ export default function Nosotros() {
             <span className="mesa-punto" aria-hidden="true" />
             <article className="mesa-tarjeta">
               <div className="mesa-encabezado">
-                <span className="mesa-periodo">Mesa {m.periodo}</span>
+                <span className="mesa-periodo">{m.titulo || `Mesa ${m.periodo}`}</span>
                 {m.etiqueta && <span className="mesa-etiqueta">{m.etiqueta}</span>}
               </div>
-              <h3 className="mesa-presidencia">Presidencia: {m.presidencia}</h3>
+              {m.presidencia && <h3 className="mesa-presidencia">Presidencia: {m.presidencia}</h3>}
 
               {m.mesa?.length > 0 && (
                 <ul className="mesa-cargos">
