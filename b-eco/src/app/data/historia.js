@@ -160,12 +160,13 @@ export const mesasDirectivas = [
   },
   {
     id: '2023-2025',
-    periodo: '2023 – 2025',
+    periodo: '2022 – 2025',
     etiqueta: 'Mesa anterior',
     presidencia: 'Elizabeth Galván',
     fotoMesa: 'https://firebasestorage.googleapis.com/v0/b/b-eco-18c09.appspot.com/o/Assets%2FWhatsApp%20Image%202023-12-04%20at%2018.36.34.jpeg?alt=media&token=7b2a0c64-83a5-46b2-9870-9e7f44b52b4c',
     mesa: [],
     resumen: [
+      'Elizabeth Galván, vicepresidenta de la mesa fundadora, asumió la presidencia en agosto de 2022.',
       'Etapa en la que B-Eco creció con talleres para niñas, niños y estudiantes, reforestación, un jardín polinizador y la recuperación de espacios públicos con llantas recicladas.',
     ],
     semestres: [
@@ -271,23 +272,9 @@ export const mesasDirectivas = [
         ],
         fotos: [],
       },
-    ],
-    fotos: carrusel2023.images.map((foto) => foto.img),
-    tituloFotos: 'Galería de la mesa',
-    pagina: '/historia/2023-2025',
-  },
-  {
-    id: '2022',
-    periodo: '2022',
-    titulo: 'Fundación · 2022',
-    etiqueta: 'Los inicios',
-    resumen: [
-      'B-Eco nació en febrero de 2022 con un grupo muy pequeño de colaboradores. Ese primer año se enfocó en crecer: muchas juntas para planear el futuro y los primeros talleres.',
-    ],
-    semestres: [
       {
         id: '2022-ago-dic',
-        nombre: 'Segundo semestre',
+        nombre: 'Arranque de la mesa',
         fechas: 'Agosto – diciembre 2022',
         acciones: [
           {
@@ -300,13 +287,30 @@ export const mesasDirectivas = [
           {
             fecha: 'Ago 2022',
             tipo: 'logro',
-            titulo: 'Toma de protesta de la mesa directiva',
-            texto: 'Empieza la mesa directiva de agosto – diciembre 2022, con su toma de protesta como líderes estudiantiles LiFE.',
+            titulo: 'Toma de protesta de la nueva mesa directiva',
+            texto: 'Elizabeth Galván asume la presidencia y la nueva mesa rinde protesta como líderes estudiantiles LiFE.',
             foto: '/historia/2022/2022-ad-mesa.jpg',
           },
         ],
         fotos: ['/historia/2022/2022-10-tequila-b.jpg'],
       },
+    ],
+    fotos: carrusel2023.images.map((foto) => foto.img),
+    tituloFotos: 'Galería de la mesa',
+    pagina: '/historia/2023-2025',
+  },
+  {
+    id: '2022',
+    periodo: 'Feb – jun 2022',
+    titulo: 'Mesa fundadora · 2022',
+    etiqueta: 'Los inicios',
+    presidencia: 'Juancho',
+    mesa: [{ cargo: 'Vicepresidencia', nombre: 'Elizabeth Galván' }],
+    resumen: [
+      'B-Eco nació en febrero de 2022. La primera mesa directiva era un grupo de amigos que decidió formar el grupo, con muy pocos colaboradores.',
+      'Ese semestre se enfocó en crecer: muchas juntas para planear el futuro y un solo taller. Juancho fue presidente solo ese semestre.',
+    ],
+    semestres: [
       {
         id: '2022-feb-jun',
         nombre: 'Primer semestre',
@@ -323,7 +327,7 @@ export const mesasDirectivas = [
             fecha: 'Feb 2022',
             tipo: 'logro',
             titulo: 'Nace B-Eco',
-            texto: 'Se crea el grupo. En la foto están todos los colaboradores de ese momento, incluida la mesa directiva: éramos muy poquitos.',
+            texto: 'Se crea el grupo. En la foto están todos los colaboradores de ese momento, incluida la mesa directiva: éramos muy poquitos. Juancho, el primer presidente, es el de camisa azul con mangas verdes.',
             foto: '/historia/2022/2022-02-fundacion.jpg',
           },
         ],
