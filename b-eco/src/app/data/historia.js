@@ -27,7 +27,9 @@ const fotoProyecto2023 = (titulo) => proyectos2023.find((p) => p.title === titul
 
 // Cifras que se muestran en "B-Eco en números"
 export const cifrasGenerales = [
-  { valor: '+100', texto: 'voluntarios activos' },
+  { valor: '+100', texto: 'voluntarios en ene – jun 2026' },
+  { valor: '20', texto: 'voluntarios en ago – dic 2026' },
+  { valor: '30', texto: 'lugares para voluntarios en ene – jun 2027' },
   { valor: '680 kg', texto: 'de tapitas donadas contra el cáncer' },
   { valor: '183', texto: 'hogares censados en La Primavera' },
   { valor: '50', texto: 'personas capacitadas en cultivo de hongos' },
@@ -52,6 +54,7 @@ export const mesasDirectivas = [
         nombre: '4.º semestre',
         fechas: 'Enero – junio 2027',
         estado: 'Próximo',
+        resumen: ['Habrá lugar para 30 voluntarios.'],
         acciones: [
           {
             fecha: 'Feb – jun 2027',
@@ -67,6 +70,7 @@ export const mesasDirectivas = [
         nombre: '3.er semestre',
         fechas: 'Agosto – diciembre 2026',
         estado: 'En curso',
+        resumen: ['Trabajamos con 20 voluntarios.'],
         portada: {
           src: '/historia/2026-ago-dic/portada-reconocimiento.jpg',
           pie: 'La mesa directiva con su reconocimiento del Bosque La Primavera. Foto tomada en el Sendero Ecológico Didáctico.',
